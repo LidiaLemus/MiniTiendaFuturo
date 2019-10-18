@@ -15,6 +15,9 @@ class CreateProductHasSalesTable extends Migration
     {
         Schema::create('product_has__sales', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->decimal('price',11,2);
+            $table->Integer('quantity');
+            $table->decimal('subtotal',11,2);
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ class CreatePurchaseDetailsTable extends Migration
     {
         Schema::create('purchase__details', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->Integer('quantity');
+            $table->decimal('price',11,2);
+            $table->decimal('subtotal',11,2);
             $table->timestamps();
         });
     }
