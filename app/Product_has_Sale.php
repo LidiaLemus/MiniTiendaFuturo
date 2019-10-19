@@ -10,4 +10,11 @@ class Product_has_Sale extends Model
     protected $fillable = [
         'price','quantity','subtotal', 'sale_id', 'product_id'
     ];
+
+    public function product(){
+    	return $this->belongsTo('App\Product');
+    }
+    public function sale(){
+    	return $this->belognsTo('App\Sale');
+    }
 }
