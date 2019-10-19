@@ -17,7 +17,10 @@ class CreateStocktakingsTable extends Migration
             $table->bigIncrements('id');
             $table->Integer('quantity');
             $table->string('description',120);
+            $table->bigInteger('product_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

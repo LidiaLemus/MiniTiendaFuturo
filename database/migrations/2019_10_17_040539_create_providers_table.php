@@ -18,7 +18,10 @@ class CreateProvidersTable extends Migration
             $table->string('fullname',45);
             $table->string('phone',13);
             $table->string('email',45)->unique();
+            $table->bigInteger('company_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('company_id')->references('id')->on('companies');
         });
     }
 

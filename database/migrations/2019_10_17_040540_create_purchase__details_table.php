@@ -18,7 +18,17 @@ class CreatePurchaseDetailsTable extends Migration
             $table->Integer('quantity');
             $table->decimal('price',11,2);
             $table->decimal('subtotal',11,2);
+            $table->bigInteger('purchase_id')->unsigned();
+            $table->bigInteger('provider_id')->unsigned();
+            $table->bigInteger('product_id')->unsigned();
             $table->timestamps();
+
+
+            $table->foreign('purchase_id')->references('id')->on('purchases');
+            $table->foreign('provider_id')->references('id')->on('providers');
+            $table->foreign('product_id')->references('id')->on('products');
+
+
         });
     }
 
