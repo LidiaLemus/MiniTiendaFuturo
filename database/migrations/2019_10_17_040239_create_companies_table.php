@@ -17,8 +17,10 @@ class CreateCompaniesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',45);
             $table->string('nit',13);
+            $table->string('address',45);
             $table->string('email',45)->unique();
             $table->string('phone',13);
+            $table->boolean('is_active')->default('1');
             $table->timestamps();
         });
     }

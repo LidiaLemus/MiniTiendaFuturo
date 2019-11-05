@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name',45);
             $table->Integer('sale_price');
             $table->Integer('purchase_price');
+            $table->boolean('is_active')->default('1');
             $table->timestamps();
         });
     }

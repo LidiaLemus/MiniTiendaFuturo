@@ -20,6 +20,7 @@ class CreateEmployeesTable extends Migration
             $table->string('phone',12);
             $table->string('email',30)->unique();
             $table->string('cui',13)->unique();
+            $table->boolean('is_active')->default('1');
             $table->timestamps();
         });
     }
