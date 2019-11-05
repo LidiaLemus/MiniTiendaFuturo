@@ -14,17 +14,20 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        //creo una variable product que guardara en una lista y llamare
+        //al modelo Product y esa lista retornara al archivo index.
+        $product = Product::all();
+        return view('product.index',compact('product'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     *Esta funcion la creamos para que ingrese un nuevo producto.
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('product.create');
     }
 
     /**
@@ -35,7 +38,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //creamos una variable, llamamos al modelo creamos un nuevo
+        //producto y que al ingresar el dato lo mande ala vista de la carpeta
+        //en el archivo show.
+        $product = Product::create($request->all());
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -44,9 +51,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
         //
+        $product = Product::findOrFail($id);
+        return view('product.edit',compact('product'));
     }
 
     /**
@@ -55,9 +64,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
         //
+        $product = Product::findOrFail($id);
+        return view('product.edit',compact('product'));
     }
 
     /**
@@ -67,9 +78,12 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request,$id)
     {
         //
+        $product = Product::find($id);
+        $product->update($request->all());
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -78,8 +92,11 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
         //
+        Product::find($id)->delete();
+        $product = Product::all();
+        return view('product.index',compact('product'));
     }
 }

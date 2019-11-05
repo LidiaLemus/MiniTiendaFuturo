@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Stocktaking;
+use App\Product;
 use Illuminate\Http\Request;
 
 class StocktakingController extends Controller
@@ -15,6 +16,9 @@ class StocktakingController extends Controller
     public function index()
     {
         //
+        $stocktaking = Stocktaking::all();
+        
+        return view('stocktaking.index',compact('stocktaking'));
     }
 
     /**
@@ -25,6 +29,8 @@ class StocktakingController extends Controller
     public function create()
     {
         //
+        $product = Product::all(); 
+        return view('stocktaking.create',compact('product'));
     }
 
     /**
@@ -36,6 +42,9 @@ class StocktakingController extends Controller
     public function store(Request $request)
     {
         //
+
+        $stocktaking = Stocktaking::create($request->all());
+        return view('stocktaking.show',compact('stocktaking'));
     }
 
     /**
@@ -47,6 +56,8 @@ class StocktakingController extends Controller
     public function show(Stocktaking $stocktaking)
     {
         //
+        $stocktaking = Stocktaking::findOrFail($id);
+        return view('stocktaking.show',compact('stocktaking'));
     }
 
     /**
@@ -55,9 +66,12 @@ class StocktakingController extends Controller
      * @param  \App\Stocktaking  $stocktaking
      * @return \Illuminate\Http\Response
      */
-    public function edit(Stocktaking $stocktaking)
+    public function edit($id)
     {
         //
+        $product = Product::all();
+        $stocktaking = Stocktaking::findOrFail($id);
+        return view('stocktaking.edit',compact('stocktaking','product'));
     }
 
     /**
@@ -67,9 +81,12 @@ class StocktakingController extends Controller
      * @param  \App\Stocktaking  $stocktaking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Stocktaking $stocktaking)
+    public function update(Request $request,$id)
     {
         //
+        $stocktaking = Stocktaking::find($id);
+        $stocktaking->update($request->all());
+        return view('stocktaking.show',compact('stocktaking'));
     }
 
     /**

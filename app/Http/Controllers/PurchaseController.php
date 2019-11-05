@@ -15,6 +15,9 @@ class PurchaseController extends Controller
     public function index()
     {
         //
+       
+        $purchase = Purchase::all();
+        return view('purchase.index',compact('purchase'));
     }
 
     /**
@@ -25,6 +28,7 @@ class PurchaseController extends Controller
     public function create()
     {
         //
+        return view('purchase.create');
     }
 
     /**
@@ -36,6 +40,8 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
         //
+        $purchase = Purchase::create($request->all());
+        return view('purchase.show',compact('purchase'));
     }
 
     /**
@@ -44,9 +50,11 @@ class PurchaseController extends Controller
      * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function show(Purchase $purchase)
+    public function show($id)
     {
         //
+        $purchase = Purchase::findOrFail($id);
+        return view('purchase.show',compact('purchase'));
     }
 
     /**
@@ -55,9 +63,11 @@ class PurchaseController extends Controller
      * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function edit(Purchase $purchase)
+    public function edit($id)
     {
         //
+        $purchase = Purchase::findOrFail($id);
+        return view('purchase.edit',compact('purchase'));
     }
 
     /**
@@ -67,9 +77,12 @@ class PurchaseController extends Controller
      * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Purchase $purchase)
+    public function update(Request $request,$id)
     {
         //
+        $purchase = Purchase::find($id);
+        $purchase->update($request->all());
+        return view('purchase.show',compact('purchase'));
     }
 
     /**
@@ -78,8 +91,12 @@ class PurchaseController extends Controller
      * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Purchase $purchase)
+    public function destroy($id)
     {
         //
+
+        Purchase::find($id)->delete();
+        $purchase = Purchase::all();
+        return view('purchase.index',compact('purchase'));
     }
 }

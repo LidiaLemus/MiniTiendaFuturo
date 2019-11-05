@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Purchase extends Model
 {
-    protected $table = 'purcharses';
+    protected $table = 'purchases';
     protected $fillable = [
-        'date','quantity','description'
+        'date','description','total'
     ];
 
     public function purchase_details(){

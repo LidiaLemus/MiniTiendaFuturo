@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Sale;
+use App\Employee;
+use App\Customer;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -15,6 +17,12 @@ class SaleController extends Controller
     public function index()
     {
         //
+        
+        $sale = Sale::all();
+
+        return view('sale.index',compact('sale'));
+
+        
     }
 
     /**
@@ -25,6 +33,11 @@ class SaleController extends Controller
     public function create()
     {
         //
+        $employee = Employee::all(); 
+        $customer = Customer::all();
+        return view('sale.create',compact('employee','customer'));
+    
+
     }
 
     /**
@@ -36,6 +49,9 @@ class SaleController extends Controller
     public function store(Request $request)
     {
         //
+
+        $sale = Sale::create($request->all());
+        return view('sale.show',compact('sale'));
     }
 
     /**
@@ -44,9 +60,11 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function show(Sale $sale)
+    public function show($id)
     {
         //
+        $sale = Sale::findOrFail($id);
+        return view('sale.show',compact('sale'));
     }
 
     /**
@@ -55,9 +73,13 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sale $sale)
+    public function edit($id)
     {
         //
+        $employee = Employee::all();
+        $customer = Customer::all();
+        $sale = Sale::findOrFail($id);
+        return view('sale.edit',compact('sale','employee','customer'));
     }
 
     /**
@@ -67,9 +89,12 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sale $sale)
+    public function update(Request $request,$id)
     {
         //
+        $sale = Sale::find($id);
+        $sale->update($request->all());
+        return view('sale.show',compact('sale'));
     }
 
     /**
@@ -78,8 +103,13 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sale $sale)
+    public function destroy($id)
     {
         //
+        Sale::find($id)->delete();
+        $sale = Sale::all();
+        return view('sale.index',compact('sale'));
     }
+
+  
 }

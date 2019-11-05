@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Provider;
+use App\Company;
 use Illuminate\Http\Request;
 
 class ProviderController extends Controller
@@ -15,6 +16,9 @@ class ProviderController extends Controller
     public function index()
     {
         //
+        $provider = Provider::all();
+        
+        return view('provider.index',compact('provider'));
     }
 
     /**
@@ -25,8 +29,11 @@ class ProviderController extends Controller
     public function create()
     {
         //
-    }
 
+        $company = Company::all();
+        return view('provider.create',compact('company'));
+    
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -36,6 +43,8 @@ class ProviderController extends Controller
     public function store(Request $request)
     {
         //
+        $provider = Provider::create($request->all());
+        return view('provider.show',compact('provider'));
     }
 
     /**
@@ -44,9 +53,11 @@ class ProviderController extends Controller
      * @param  \App\Provider  $provider
      * @return \Illuminate\Http\Response
      */
-    public function show(Provider $provider)
+    public function show($id)
     {
         //
+        $provider = Provider::findOrFail($id);
+        return view('provider.show',compact('provider'));
     }
 
     /**
@@ -55,9 +66,12 @@ class ProviderController extends Controller
      * @param  \App\Provider  $provider
      * @return \Illuminate\Http\Response
      */
-    public function edit(Provider $provider)
+    public function edit($id)
     {
         //
+        $company = Company::all();
+        $provider = Provider::findOrFail($id);
+        return view('provider.edit',compact('provider','company'));
     }
 
     /**
@@ -67,9 +81,12 @@ class ProviderController extends Controller
      * @param  \App\Provider  $provider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provider $provider)
+    public function update(Request $request,$id)
     {
         //
+        $provider = Provider::find($id);
+        $provider->update($request->all());
+        return view('provider.show',compact('provider'));
     }
 
     /**

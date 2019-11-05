@@ -15,7 +15,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $employee = Employee::all();
-        return view('customer.index',compact('customer'));
+        return view('employee.index',compact('employee'));
     }
 
     /**
@@ -25,7 +25,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('employee.create');
     }
 
     /**
@@ -37,6 +37,8 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         //
+        $employee = Employee::create($request->all());
+        return view('employee.show',compact('employee'));
     }
 
     /**
@@ -45,9 +47,11 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function show(Employee $employee)
+    public function show($id)
     {
         //
+        $employee = Employee::findOrFail($id);
+        return view('employee.show',compact('employee'));
     }
 
     /**
@@ -56,9 +60,11 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Employee $employee)
+    public function edit($id)
     {
         //
+        $employee = Employee::findOrFail($id);
+        return view('employee.edit',compact('employee'));
     }
 
     /**
@@ -68,9 +74,12 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Employee $employee)
+    public function update(Request $request,$id)
     {
         //
+        $employee = Employee::find($id);
+        $employee->update($request->all());
+        return view('employee.show',compact('employee'));
     }
 
     /**
@@ -79,8 +88,11 @@ class EmployeeController extends Controller
      * @param  \App\Employee  $employee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Employee $employee)
+    public function destroy($id)
     {
         //
+        Employee::find($id)->delete();
+        $employee = Employee::all();
+        return view('employee.index',compact('employee'));
     }
 }
