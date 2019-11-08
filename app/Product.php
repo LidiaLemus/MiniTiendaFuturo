@@ -8,7 +8,7 @@ class Product extends Model
 {
     
     protected $table = 'products';
-    protected $fillable = ['code','name','sale_price','purchase_price','is_active'];
+    protected $fillable = ['code','name','quantity','sale_price','purchase_price','is_active'];
 
     public function product_has_sales(){
     	return $this->hasMany('App\Product_has_Sale');
@@ -17,8 +17,5 @@ class Product extends Model
         return $this->hasMany('App\Purchase_Detail');
 
     }
-    public function stocktakings(){
-        return $this->hasMany('App\Stocktaking');
-    }
-    
+   
 }
