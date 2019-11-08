@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Sale;
 use App\Employee;
 use App\Customer;
+use App\Product;
+
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -33,9 +35,12 @@ class SaleController extends Controller
     public function create()
     {
         //
+    
+        $product = Product::all();
+        $p = Product::all();
         $employee = Employee::all(); 
         $customer = Customer::all();
-        return view('sale.create',compact('employee','customer'));
+        return view('sale.create',compact('employee','customer','product','p'));
     
 
     }

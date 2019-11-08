@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Product_has_Sale;
+use App\Product;
+use App\Sale;
+use App\SaleDetail;
 use Illuminate\Http\Request;
 
-class ProductHasSaleController extends Controller
+class SaleDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +16,10 @@ class ProductHasSaleController extends Controller
     public function index()
     {
         //
+        $sale_detail = SaleDetail::all();
+
+        return view('sale_detail.index',compact('sale_detail'));
+
     }
 
     /**
@@ -25,6 +30,8 @@ class ProductHasSaleController extends Controller
     public function create()
     {
         //
+        $product = Product::all();
+        return view('sale_detail.create',compact('product'));
     }
 
     /**
@@ -35,39 +42,44 @@ class ProductHasSaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
+        $sale_detail = SaleDetail::create($request->all());
+        return view('sale_detail.show',compact('sale_detail'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product_has_Sale  $product_has_Sale
+     * @param  \App\SaleDetail  $product_has_Sale
      * @return \Illuminate\Http\Response
      */
-    public function show(Product_has_Sale $product_has_Sale)
+    public function show($id)
     {
         //
+        $sale_detail = SaleDetail::findOrFail($id);
+        return view('sale_detail.show',compact('sale_detail'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product_has_Sale  $product_has_Sale
+     * @param  \App\SaleDetail  $product_has_Sale
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product_has_Sale $product_has_Sale)
+    public function edit($id)
     {
         //
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product_has_Sale  $product_has_Sale
+     * @param  \App\SaleDetai  $product_has_Sale
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product_has_Sale $product_has_Sale)
+    public function update(Request $request,$id)
     {
         //
     }
@@ -75,10 +87,10 @@ class ProductHasSaleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product_has_Sale  $product_has_Sale
+     * @param  \App\SaleDetail  $product_has_Sale
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product_has_Sale $product_has_Sale)
+    public function destroy($id)
     {
         //
     }
