@@ -12,11 +12,15 @@
 
     <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="code" placeholder="Codigo Producto" value="{{$producto->code}}">
+    <input class="input is-primary" type="text" name="code" placeholder="Codigo Producto" value="{{$product->code}}">
   </div>
   <div class="field">
   <div class="control">
     <input class="input is-primary" type="text" name="name" placeholder="Nombre Producto" value="{{$product->name}}"">
+  </div>
+  <div class="field">
+  <div class="control">
+    <input class="input is-primary" type="text" name="quantity" placeholder="Cantidad" value="{{$product->quantity}}"">
   </div>
   <div class="field">
   <div class="control">

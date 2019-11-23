@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product_has_Sale extends Model
+class SaleDetail extends Model
 {
-    protected $table = 'product_has_sales';
+    protected $table = 'product_has__sales';
     protected $fillable = [
         'price','quantity','subtotal', 'sale_id', 'product_id'
     ];

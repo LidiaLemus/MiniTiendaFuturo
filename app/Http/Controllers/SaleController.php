@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\SaleDeil;
 use App\Sale;
 use App\Employee;
 use App\Customer;
@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class SaleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

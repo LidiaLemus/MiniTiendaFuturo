@@ -44,7 +44,7 @@
    <option value=" {{$provider['id'] }}" 
    
    @if($provider->id === $purchase_Detail->provider_id )
-            sel  ected
+            selected
             @endif
    >{{$provider['fullname']}}</option>
    @endforeach 

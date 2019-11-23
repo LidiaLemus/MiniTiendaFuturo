@@ -17,6 +17,7 @@
  			
  			<th>Codigo del Producto</th>
              <th>Nombre del Producto</th>
+			 <th>Cantidad del Producto</th>
              <th>Precio de Venta</th>
  			<th>Precio de Compra</th>
  		</tr>
@@ -26,6 +27,7 @@
  				<tr>
 		<td>{{$product->code}}</td>
         <td>{{$product->name}}</td>
+		<td>{{$product->quantity}}</td>
         <td>{{$product->sale_price}}</td>
 		<td>{{$product->purchase_price}}</td>
 		<td><a class="button is-primary" href="{{route('product.show',$product->id)}}">Detalle Producto</a>

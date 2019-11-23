@@ -22,6 +22,7 @@ Route::resource('provider','ProviderController');
 Route::resource('purchase','PurchaseController');
 Route::resource('purchase_Detail','PurchaseDetailController');
 Route::resource('stocktaking','StocktakingController');
+Route::resource('sale_detail','SaleDetailController');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');

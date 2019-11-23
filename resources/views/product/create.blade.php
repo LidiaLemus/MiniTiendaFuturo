@@ -16,6 +16,12 @@
   <div class="control">
     <input class="input is-primary" type="text" name="name" placeholder="Nombre del Producto" required> 
   </div>
+
+  <div class="field">
+  <div class="control">
+    <input class="input is-primary" type="text" name="quantity" placeholder="Cantidad" required> 
+  </div>
+  </div>
   <div class="field">
   <div class="control">
     <input class="input is-primary" type="text" name="sale_price" placeholder="Precio de Venta" required>
