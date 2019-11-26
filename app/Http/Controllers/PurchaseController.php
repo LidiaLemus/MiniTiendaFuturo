@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Purchase_Detail;
 use App\Purchase;
+use App\Product;
+use App\Provider;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PurchaseController extends Controller
@@ -18,10 +21,9 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        //
-       
+        $provider = Provider::all();
         $purchase = Purchase::all();
-        return view('purchase.index',compact('purchase'));
+        return view('purchase.index',compact('purchase','provider'));
     }
 
     /**
@@ -31,8 +33,9 @@ class PurchaseController extends Controller
      */
     public function create()
     {
-        //
-        return view('purchase.create');
+        $product = Product::all();
+        $provider = Provider::all();
+        return view('purchase.create',compact('provider','product'));
     }
 
     /**
@@ -43,9 +46,36 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $purchase = Purchase::create($request->all());
-        return view('purchase.show',compact('purchase'));
+        try{
+            DB::beginTransaction();
+             $compra = new Purchase;
+             $compra->total = $request->get('suma_total');
+             $compra->saveOrFail();
+             
+             $provider = $request->get('provider_id');
+             $product_id = $request->get('id_producto');
+             $cantidad = $request->get('cantidad');
+             $purchase_price = $request->get('precio_compra');
+             $subtotal = $request->get('subtotal');
+
+            $cont = 0;
+            while($cont < count($product_id)){
+                $detalle = new Purchase_Detail;
+                $detalle->quantity = $cantidad[$cont];
+                $detalle->price = $purchase_price[$cont];
+                $detalle->subtotal = $subtotal[$cont];
+                $detalle->purchase_id = $compra->id;
+                $detalle->provider_id = $provider;
+                $detalle->product_id = $product_id[$cont];
+                $detalle->saveOrFail();
+                
+                $cont = $cont + 1;
+            }
+                DB::commit();
+        }catch(\Exception $e){
+            DB::rollback();
+        }
+        return redirect('purchase');     
     }
 
     /**
