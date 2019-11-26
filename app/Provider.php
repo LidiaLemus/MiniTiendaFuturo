@@ -14,7 +14,7 @@ class Provider extends Model
     public function company(){
     	return $this->belongsTo('App\Company');
     }
-    public function purcharse_details(){
+    public function purcharseDetail(){
     	return $this->hasMany('App\Purchase_Detail');
     }
 }
