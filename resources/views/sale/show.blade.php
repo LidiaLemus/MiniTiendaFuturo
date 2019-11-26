@@ -11,8 +11,8 @@
  		<thead>
  			<tr>
  				<td>Nombre Empleado</td>
- 				<td>Nombre Cliente</td>
-                 <td>Total</td>
+				 <td>Nombre Cliente</td>
+                 <td>Total de la venta</td>
  			</tr>
  			
  		</thead>
@@ -20,8 +20,10 @@
  		<tbody>
  			<tr>
 	 		<td>{{$sale->employee->fullname}}</td>
-		<td>{{$sale->customer->fullname}}</td>
-        <td>{{$sale->total}}</td>
+			<td>{{$sale->customer->fullname}}</td>
+			
+			<td>{{$sale->total}}</td>
+		
                
                 
 	 			<td><a class="button is-success button is-fullwidth" href="{{route('sale.index')}}">Lista</a></td>
