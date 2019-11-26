@@ -15,8 +15,7 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('date');
-            $table->string('description',120);
+            $table->string('description',120)->nullable();
             $table->decimal('total',11,2);
             $table->timestamps();
         });
