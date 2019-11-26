@@ -18,7 +18,6 @@ class Purchase_Detail extends Model
 
     public function provider(){
         return $this->belongsTo('App\Provider');
-        
     }
     public function purchase(){
         return $this->belongsTo('App\Purchase');
