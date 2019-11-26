@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\SaleDeil;
+use App\SaleDetail;
 use App\Sale;
 use App\Employee;
 use App\Customer;
 use App\Product;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -38,8 +38,6 @@ class SaleController extends Controller
      */
     public function create()
     {
-        //
-    
         $product = Product::all();
         $p = Product::all();
         $employee = Employee::all(); 
@@ -57,10 +55,36 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         try{
+            DB::beginTransaction();
+             $venta = new Sale;
+             $venta->total = $request->get('suma_total');
+             $venta->employee_id = $request->get('employee_id');
+             $venta->customer_id = $request->get('customer_id');
+             $venta->saveOrFail();
+            
+             $product_id = $request->get('id_producto');
+             $cantidad = $request->get('cantidad');
+             $sale_price = $request->get('precio_venta');
+             $subtotal = $request->get('subtotal');
 
-        $sale = Sale::create($request->all());
-        return view('sale.show',compact('sale'));
+            $cont = 0;
+            while($cont < count($product_id)){
+                $detalle = new SaleDetail;
+                $detalle->price = $sale_price[$cont];
+                $detalle->quantity = $cantidad[$cont];
+                $detalle->subtotal = $subtotal[$cont];
+                $detalle->sale_id = $venta->id;
+                $detalle->product_id = $product_id[$cont];
+                $detalle->saveOrFail();
+                
+                $cont = $cont + 1;
+            }
+                DB::commit();
+        }catch(\Exception $e){
+            DB::rollback();
+        }
+        return redirect('sale');        
     }
 
     /**
@@ -71,7 +95,7 @@ class SaleController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail(1);
         $sale = Sale::findOrFail($id);
         return view('sale.show',compact('sale'));
     }
