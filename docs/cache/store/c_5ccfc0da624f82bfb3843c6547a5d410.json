@@ -1,0 +1,164 @@
+{
+    "name": "App\\Sale",
+    "line": 7,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "\/home\/lidia\/Documents\/laravel\/MiniTiendaFuturo\/app\/Sale.php",
+    "relative_file": null,
+    "hash": "3040b6f3f2fbd90c37d55da0b216f13bcdfdff82",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 9,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "sales",
+                "attributes": {
+                    "startLine": 9,
+                    "endLine": 9,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "fillable": {
+            "name": "fillable",
+            "line": 10,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "total",
+                            "attributes": {
+                                "startLine": 11,
+                                "endLine": 11,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 11,
+                            "endLine": 11
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "employee_id",
+                            "attributes": {
+                                "startLine": 11,
+                                "endLine": 11,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 11,
+                            "endLine": 11
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "customer_id",
+                            "attributes": {
+                                "startLine": 11,
+                                "endLine": 11,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 11,
+                            "endLine": 11
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 10,
+                    "endLine": 12,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "product_has_sales": {
+            "name": "product_has_sales",
+            "line": 13,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "customer": {
+            "name": "customer",
+            "line": 17,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "employee": {
+            "name": "employee",
+            "line": 21,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

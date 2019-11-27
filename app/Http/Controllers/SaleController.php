@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\SaleDetail;
 use App\Sale;
 use App\Employee;
@@ -23,12 +24,10 @@ class SaleController extends Controller
     public function index()
     {
         //
-        
+
         $sale = Sale::all();
 
-        return view('sale.index',compact('sale'));
-
-        
+        return view('sale.index', compact('sale'));
     }
 
     /**
@@ -40,11 +39,9 @@ class SaleController extends Controller
     {
         $product = Product::all();
         $p = Product::all();
-        $employee = Employee::all(); 
+        $employee = Employee::all();
         $customer = Customer::all();
-        return view('sale.create',compact('employee','customer','product','p'));
-    
-
+        return view('sale.create', compact('employee', 'customer', 'product', 'p'));
     }
 
     /**
@@ -55,21 +52,21 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-         try{
+        try {
             DB::beginTransaction();
-             $venta = new Sale;
-             $venta->total = $request->get('suma_total');
-             $venta->employee_id = $request->get('employee_id');
-             $venta->customer_id = $request->get('customer_id');
-             $venta->saveOrFail();
-            
-             $product_id = $request->get('id_producto');
-             $cantidad = $request->get('cantidad');
-             $sale_price = $request->get('precio_venta');
-             $subtotal = $request->get('subtotal');
+            $venta = new Sale;
+            $venta->total = $request->get('suma_total');
+            $venta->employee_id = $request->get('employee_id');
+            $venta->customer_id = $request->get('customer_id');
+            $venta->saveOrFail();
+
+            $product_id = $request->get('id_producto');
+            $cantidad = $request->get('cantidad');
+            $sale_price = $request->get('precio_venta');
+            $subtotal = $request->get('subtotal');
 
             $cont = 0;
-            while($cont < count($product_id)){
+            while ($cont < count($product_id)) {
                 $detalle = new SaleDetail;
                 $detalle->price = $sale_price[$cont];
                 $detalle->quantity = $cantidad[$cont];
@@ -77,14 +74,14 @@ class SaleController extends Controller
                 $detalle->sale_id = $venta->id;
                 $detalle->product_id = $product_id[$cont];
                 $detalle->saveOrFail();
-                
+
                 $cont = $cont + 1;
             }
-                DB::commit();
-        }catch(\Exception $e){
+            DB::commit();
+        } catch (\Exception $e) {
             DB::rollback();
         }
-        return redirect('sale');        
+        return redirect('sale');
     }
 
     /**
@@ -95,9 +92,21 @@ class SaleController extends Controller
      */
     public function show($id)
     {
-        $product = Product::findOrFail(1);
-        $sale = Sale::findOrFail($id);
-        return view('sale.show',compact('sale'));
+        $salese = DB::table('sales as s')
+            ->join('employees as emplo', 's.employee_id', '=', 'emplo.id')
+            ->join('customers as c', 's.customer_id', '=', 'c.id')
+            ->join('product_has__sales as d', 's.id', '=', 'd.sale_id')
+            ->select('s.id as id', 's.created_at as fecha', 'emplo.fullname as empleado', 'c.fullname as cliente','s.total as total')
+            ->where('s.id', '=', $id)
+            ->first();
+
+        $detallese = DB::table('product_has__sales as d')
+            ->join('products as p', 'd.product_id', '=', 'p.id')
+            ->select('p.name as nombres', 'd.quantity as quantity', 'd.price as price', 'd.subtotal as subtotal')
+            ->where('d.sale_id', '=', $id)
+            ->get();
+
+        return view("sale.show", ["detallese" => $detallese, "salese" => $salese]);
     }
 
     /**
@@ -112,7 +121,7 @@ class SaleController extends Controller
         $employee = Employee::all();
         $customer = Customer::all();
         $sale = Sale::findOrFail($id);
-        return view('sale.edit',compact('sale','employee','customer'));
+        return view('sale.edit', compact('sale', 'employee', 'customer'));
     }
 
     /**
@@ -122,12 +131,12 @@ class SaleController extends Controller
      * @param  \App\Sale  $sale
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         //
         $sale = Sale::find($id);
         $sale->update($request->all());
-        return view('sale.show',compact('sale'));
+        return view('sale.show', compact('sale'));
     }
 
     /**
@@ -141,8 +150,6 @@ class SaleController extends Controller
         //
         Sale::find($id)->delete();
         $sale = Sale::all();
-        return view('sale.index',compact('sale'));
+        return view('sale.index', compact('sale'));
     }
-
-  
 }

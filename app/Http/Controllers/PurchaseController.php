@@ -86,9 +86,21 @@ class PurchaseController extends Controller
      */
     public function show($id)
     {
-        //
-        $purchase = Purchase::findOrFail($id);
-        return view('purchase.show',compact('purchase'));
+        $pur = DB::table('purchases as p')
+            ->join('purchase__details as pur', 'p.id', '=', 'pur.purchase_id')
+            ->select('p.id as id', 'p.created_at as fecha','p.total as total')
+            ->where('p.id', '=', $id)
+            ->first();
+
+        $detail = DB::table('purchase__details as purc')
+            ->join('products as p', 'purc.product_id', '=', 'p.id')
+            ->join('purchases as pu','purc.purchase_id','=','pu.id')
+            ->join('providers as pro','purc.provider_id','=','pro.id')
+            ->select('p.name as nombres', 'purc.quantity as quantity', 'purc.price as price', 'purc.subtotal as subtotal','pro.fullname as fullname')
+            ->where('purc.purchase_id', '=', $id)
+            ->get();
+
+        return view("purchase.show", ["detail" => $detail, "pur" => $pur]);
     }
 
     /**
