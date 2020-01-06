@@ -17,9 +17,9 @@ class CreateProductsTable extends Migration
             $table->bigIncrements('id');
             $table->string('code',12);
             $table->string('name',45);
-            $table->double('quantity',11,2);
-            $table->Integer('sale_price');
-            $table->Integer('purchase_price');
+            $table->Integer('stock');
+            $table->decimal('sale_price',11,2);
+            $table->decimal('purchase_price',11,2);
             $table->boolean('is_active')->default('1');
             $table->timestamps();
         });
