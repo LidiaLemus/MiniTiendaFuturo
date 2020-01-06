@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
 
@@ -17,14 +17,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //creo una variable product que guardara en una lista y llamare
-        //al modelo Product y esa lista retornara al archivo index.
-        $product = Product::all();
-        return view('product.index',compact('product'));
+        if ($request)
+        {
+            $query=trim($request->get('searchText'));
+            $pro=DB::table('products')->where('name','LIKE','%'.$query.'%')
+            ->where ('is_active','=','1')
+            ->orderBy('id','desc')
+            ->paginate(7);
+            return view('product.index',["pro"=>$pro,"searchText"=>$query]);
+        }
     }
-
     /**
      * Show the form for creating a new resource.
      *Esta funcion la creamos para que ingrese un nuevo producto.

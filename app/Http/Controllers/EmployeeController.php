@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Employee;
 use Illuminate\Http\Request;
 
@@ -17,10 +17,17 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $employee = Employee::all();
-        return view('employee.index',compact('employee'));
+        if ($request)
+        {
+            $query=trim($request->get('searchText'));
+            $emplo=DB::table('employees')->where('fullname','LIKE','%'.$query.'%')
+            ->where ('is_active','=','1')
+            ->orderBy('id','desc')
+            ->paginate(7);
+            return view('employee.index',["emplo"=>$emplo,"searchText"=>$query]);
+        }
     }
 
     /**

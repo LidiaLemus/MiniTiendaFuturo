@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Customer;
 use Illuminate\Http\Request;
 
@@ -17,10 +17,17 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $customer = Customer::all();
-        return view('customer.index',compact('customer'));
+        if ($request)
+        {
+            $query=trim($request->get('searchText'));
+            $cust=DB::table('customers')->where('fullname','LIKE','%'.$query.'%')
+            ->where ('is_active','=','1')
+            ->orderBy('id','desc')
+            ->paginate(7);
+            return view('customer.index',["cust"=>$cust,"searchText"=>$query]);
+        }
     }
 
     /**

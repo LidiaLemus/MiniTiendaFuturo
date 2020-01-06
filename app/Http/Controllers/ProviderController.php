@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Provider;
 use App\Company;
 use Illuminate\Http\Request;
@@ -17,12 +17,18 @@ class ProviderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $provider = Provider::all();
-        
-        return view('provider.index',compact('provider'));
+        if ($request)
+        {
+            $query=trim($request->get('searchText'));
+            $pro=DB::table('providers')->where('fullname','LIKE','%'.$query.'%')
+            ->where ('is_active','=','1')
+            ->orderBy('id','desc')
+            ->paginate(7);
+            return view('provider.index',["pro"=>$pro,"searchText"=>$query]);
+        }
     }
 
     /**

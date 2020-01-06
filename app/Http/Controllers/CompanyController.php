@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use App\Company;
 use Illuminate\Http\Request;
 
@@ -17,11 +17,17 @@ class CompanyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $company = Company::all();
-        return view('company.index',compact('company'));
+        if ($request)
+        {
+            $query=trim($request->get('searchText'));
+            $compa=DB::table('companies')->where('name','LIKE','%'.$query.'%')
+            ->where ('is_active','=','1')
+            ->orderBy('id','desc')
+            ->paginate(7);
+            return view('company.index',["compa"=>$compa,"searchText"=>$query]);
+        }
     }
 
     /**
