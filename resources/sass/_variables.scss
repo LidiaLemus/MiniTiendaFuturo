@@ -1,19 +1,154 @@
-// Body
-$body-bg: #f8fafc;
+@function inv($c) {
+    @return lighten(invert($c), 3%);
+}
 
-// Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
-
-// Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66d9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$black: #000;
+$black-bis: #111111;
+$black-ter: #242424;
+$grey-darker: #353535;
+$grey-dark: #494949;
+$grey: #7a7a7a;
+$grey-light: #b5b5b5;
+$grey-lighter: #dbdbdb;
+$white-ter: #f4f4f4;
+$white-bis: #f9f9f9;
+$white: #ffffff;
+$black: inv($black);
+$black-bis: inv($black-bis);
+$black-ter: inv($black-ter);
+$grey-darker: inv($grey-darker);
+$grey-dark: inv($grey-dark);
+$grey: inv($grey);
+$grey-light: inv($grey-light);
+$grey-lighter: inv($grey-lighter);
+$white-ter: inv($white-ter);
+$white-bis: inv($white-bis);
+$white: inv($white);
+$orange: #ffaa00;
+$yellow: #d9ff00;
+$green: #00ff48;
+$turquoise: #00ffff;
+$grey-lighter: #FDF6E3;
+$grey-light: #eee8d5;
+$grey: #839496;
+$grey-alt: #586e75;
+$grey-dark: #073642;
+$grey-darker: #002B36;
+$orange: #cb4b16;
+$yellow: #b58900;
+$green: #859900;
+$cyan: #2aa198;
+$blue: #268bd2;
+$purple: #6c71c4;
+$red: #d33682;
+$black-bis: rgb(18, 18, 18);
+$primary: $cyan !default;
+$warning: $orange;
+$info: $blue;
+$yellow-invert: #fff;
+$light: $grey-lighter;
+$dark: darken($grey-darker, 3);
+$family-sans-serif: "Lato",
+-apple-system,
+BlinkMacSystemFont,
+"Segoe UI",
+"Helvetica Neue",
+"Helvetica",
+"Arial",
+sans-serif;
+$family-monospace: "Inconsolata",
+"Consolas",
+"Monaco",
+monospace;
+$radius-small: 3px;
+$radius: .4em;
+$radius-large: 8px;
+$body-size: 15px;
+$size-7: .85em;
+$title-weight: 500;
+$subtitle-weight: 400;
+$subtitle-color: $grey-dark;
+$border-width: 2px;
+$border: $grey-dark;
+$body-background-color: $grey-darker;
+$background: $grey-dark;
+$footer-background-color: $background;
+$title-color: $grey;
+$subtitle-color: $grey-alt;
+$subtitle-strong-color: $grey-light;
+$text: $grey;
+$text-light: lighten($text, 10);
+$text-strong: darken($text, 5);
+$box-shadow: none;
+$box-background-color: $grey-dark;
+$card-shadow: none;
+$card-background-color: $grey-darker;
+$card-header-box-shadow: none;
+$card-header-background-color: rgba($black-bis, 0.2);
+$card-footer-background-color: rgba($black-bis, 0.2);
+$link: $yellow;
+$link-hover: $grey-light;
+$link-hover-border: $grey-light;
+$link-focus: darken($grey-light, 10);
+$link-focus-border: $grey-light;
+$link-active: darken($grey-light, 10);
+$button-color: $grey;
+$button-background-color: $background;
+$button-border-color: $grey;
+$input-color: $grey;
+$input-icon-color: darken($grey-light, 10);
+$input-background-color: $grey-lighter;
+$input-border-color: darken($grey-light, 10);
+$input-hover-color: $grey-light;
+$input-disabled-background-color: $grey-dark;
+$input-disabled-border-color: $grey-dark;
+$table-color: $text;
+$table-head-color: $grey-lighter;
+$table-background-color: $grey-dark;
+$table-cell-border: 1px solid $grey;
+$table-row-hover-background-color: $grey-darker;
+$table-striped-row-even-background-color: $grey-darker;
+$table-striped-row-even-hover-background-color: lighten($grey-darker, 4);
+$pagination-border-color: $border;
+$navbar-background-color: $grey-dark;
+$navbar-item-color: $grey;
+$navbar-item-hover-color: $grey-lighter;
+$navbar-item-active-color: $grey-lighter;
+$navbar-item-active-background-color: transparent;
+$navbar-item-hover-background-color: transparent;
+$navbar-dropdown-border-top: 1px solid $grey-darker;
+$navbar-divider-background-color: $grey-darker;
+$navbar-dropdown-arrow: #fff;
+$navbar-dropdown-background-color: $grey-dark;
+$navbar-dropdown-item-hover-color: $grey-lighter;
+$navbar-dropdown-item-hover-background-color: lighten($grey-darker, 4);
+$navbar-dropdown-item-active-background-color: lighten($grey-darker, 4);
+$navbar-dropdown-item-active-color: $grey-lighter;
+$dropdown-content-background-color: $background;
+$dropdown-item-color: $text;
+$dropdown-item-hover-color: $link-hover;
+$bulmaswatch-import-font: true !default;
+$blue: #00ffff;
+$purple: #8200ff;
+$red: #f90000;
+$primary: $yellow;
+$warning: $orange;
+$border: $primary;
+$border-hover: $primary;
+$body-background-color: $white;
+$font-heading: 'Varela Round',
+BlinkMacSystemFont,
+-apple-system,
+'Segoe UI',
+'Roboto',
+'Oxygen',
+'Ubuntu',
+'Cantarell',
+'Fira Sans',
+'Droid Sans',
+'Helvetica Neue',
+'Helvetica',
+'Arial',
+sans-serif;
+$bulmaswatch-import-font: true !default;
+$box-background: $white-bis;
