@@ -11,11 +11,11 @@
 		 <div class="column">
 
 			 <label class="label">Nombre de Empleado</label>
-			 <input type="text" class="input" value="{{$salese->empleado}}">
+			 <input type="text" class="input" value="{{$salese->empleado}}" readonly>
 		 </div>
 		 <div class="column">
 			 <label class="label">Nombre de Cliente</label>
-			 <input type="text" class="input" value="{{$salese->cliente}}">
+			 <input type="text" class="input" value="{{$salese->cliente}}" readonly>
 		 </div>
 	 </div>
         <table class="table is-fullwidth is-striped is-hoverable">
@@ -30,22 +30,21 @@
  		</thead>
 
  		<tbody>
- 			<tr>
 			 @foreach($detallese as $d)
+ 			<tr>
 			 <td>{{$d->price}}</td>
 			 <td>{{$d->quantity}}</td>
 			 <td>{{$d->nombres}}</td>
 			 <td>{{$d->subtotal}}</td>
-			 @endforeach 
-	 		<td>
-			</td>
-		</tr>
-		
-		
-	</tbody>
+			 
+			</tr>
+			
+			
+		</tbody>
+		@endforeach 
 </table>
 <label class="label">Total</label>
-<input class="input" value="{{$salese->total}}"><br><br>  
+<input class="input" value="{{$salese->total}}" readonly><br><br>  
 <td><a class="button is-success button is-fullwidth" href="{{route('sale.index')}}">Lista</a></td>
         </div>
         </div>

@@ -8,33 +8,30 @@
 			   <table class="table is-fullwidth is-striped is-hoverable">
 				<thead>
 					<tr>
-						<td>Proveedor</td>
-						<td>Precio</td>
-						<td>Cantidad</td>
-						<td>Producto</td>
-					   <td>Subtotal</td>	 
+						<th>Proveedor</th>
+						<th>Precio</th>
+						<th>Cantidad</th>
+						<th>Producto</th>
+					   <th>Subtotal</th>	 
 					</tr>
 					
 				</thead>
 	   
 				<tbody>
-					<tr>
 					@foreach($detail as $d)
+				<tr>
 					<td>{{$d->fullname}}</td>
 					<td>{{$d->price}}</td>
 					<td>{{$d->quantity}}</td>
 					<td>{{$d->nombres}}</td>
-					<td>{{$d->subtotal}}</td>
-					@endforeach 
-					<td>
-				   </td>
-			   </tr>
-			   
-			   
-		   </tbody>
+		      		<td>{{$d->subtotal}}</td>
+			    </tr>
+			
+			</tbody>
+		@endforeach 
 	   </table>
 	   <label class="label">Total</label>
-	   <input class="input" value="{{$pur->total}}"><br><br>  
+	   <input class="input" value="{{$pur->total}}" readonly><br><br>  
 	   <td><a class="button is-success button is-fullwidth" href="{{route('purchase.index')}}">Lista</a></td>
 			   </div>
 			   </div>

@@ -16,11 +16,11 @@
   </div>
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="name" placeholder="Nombre Producto" value="{{$product->name}}"">
+    <input class="input is-primary" type="text" name="name" placeholder="Nombre Producto" value="{{$product->name}}">
   </div>
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="quantity" placeholder="Cantidad" value="{{$product->quantity}}"">
+    <input class="input is-primary" type="text" name="stock" placeholder="Cantidad" value="{{$product->stock}}">
   </div>
   <div class="field">
   <div class="control">

@@ -10,13 +10,12 @@
  			<a class="button is-link is-pulled-right " href="{{route('purchase.create')}}">Registrar compra</a>
  		</div>
          </div>
-
+		
         <h1 class="title is-3">Compras</h1>
         <table class="table is-striped">
  		<thead>
  			<tr>
  				<th>Fecha</th>
-            	<th>Descripcion</th>
 		   		<th>Total</th>
  			</tr>
  		</thead>
@@ -30,7 +29,7 @@
 				@endforeach  
 		</tbody>
  		</table>
-        </div>
+		</div>
         </div>
     
 @endsection

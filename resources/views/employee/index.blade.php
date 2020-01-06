@@ -10,7 +10,8 @@
  		</div>
          </div>
 
-        <h1 class="title is-3">Lista de Empeados</h1>
+		<h1 class="title is-3">Lista de Empeados</h1>
+		@include('employee.search')
         <table class="table is-fullwidth is-striped is-hoverable ">
  		<thead>
  			<tr>
@@ -23,7 +24,7 @@
  		</tr>
  		</thead>
  		<tbody>
- 			@foreach($employee as $employee)
+ 			@foreach($emplo as $employee)
  				<tr>
 		<td>{{$employee->fullname}}</td>
 		<td>{{$employee->address}}</td>
@@ -35,7 +36,8 @@
 	</tr>
  		</tbody>
 		@endforeach  
- 	</table>
+	 </table>
+	 {!! $emplo->render() !!}
         </div>
         </div>
    @endsection

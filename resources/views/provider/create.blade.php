@@ -30,7 +30,10 @@
    @endforeach 
  </select>
  </div>
- 
+  </div>
+ <br>
+ <br>
+ <br>
   <br>
   <br>
   <button class="button is-success is-focused">Guardar</button>

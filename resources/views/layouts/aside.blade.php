@@ -19,24 +19,16 @@
 
             <li>
               <a href="{{route('sale.create')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span> vender
+                <span class="icon is-small"><i class="fas fa-shopping-basket"></i></span> vender
               </a>
             </li>
             <li>
               <a href="{{route('sale.index')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span> Ventas
+                <span class="icon is-small"><i class="fas fa-list"></i></span> Ventas
               </a>
             </li>
-            <li>
-              <a href="#">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Detalle Venta
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="icon is-small"><i class="fa fa-chart-bar"></i></span>Reporte Venta
-              </a>
-            </li>
+           
+           
           </ul>
         </li>
       </ul>
@@ -46,25 +38,21 @@
           </a>
           <ul>
           <li>
-              <a href="{{route('stocktaking.index')}}">
+              <a href="{{route('product.index')}}">
                 <span class="icon is-small"><i class="fa fa-link"></i></span>Inventario
               </a>
             </li>
             <li>
               <a href="{{route('purchase.create')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>comprar
+                <span class="icon is-small"><i class="fas fa-shopping-cart"></i></span> Comprar
               </a>
             </li>
             <li>
               <a href="{{route('purchase.index')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>compras
+                <span class="icon is-small"><i class="fas fa-list-alt"></i></span> Compras
               </a>
             </li>
-            <li>
-              <a href="{{route('purchase_Detail.index')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Detalle de compra
-              </a>
-            </li>
+            
           </ul>
         </li>
       </ul>
@@ -75,23 +63,23 @@
           <ul>
           <li>
               <a href="{{route('customer.index')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Cliente
+                <span class="icon is-small"><i class="fas fa-user-friends"></i></span> Cliente
               </a>
             </li>
             <li>
               <a href="{{route('provider.index')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Proveedor
+                <span class="icon is-small"><i class="fas fa-user-alt"></i></span> Proveedor
               </a>
             </li>
             <li>
             <li>
               <a href="{{route('employee.index')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Empleado
+                <span class="icon is-small"><i class="fas fa-user-alt"></i></span> Empleado
               </a>
             </li>
             <li>
-              <a href="">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Usuario
+              <a href="{{route('user.index')}}">
+                <span class="icon is-small"><i class="fas fa-users"></i></span> Usuario
               </a>
             </li>
           </ul>
@@ -104,17 +92,12 @@
           <ul>
           <li>
               <a href="{{route('product.create')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Registrar producto
+                <span class="icon is-small"><i class="fab fa-product-hunt"></i></span> Registrar producto
               </a>
             </li>
-            <li>
-              <a href="{{route('product.index')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Lista de productos
-              </a>
-            </li>
-            <li>
+           
               <a href="{{route('company.index')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Compañia
+                <span class="icon is-small"><i class="fas fa-building"></i></span> Compañia
               </a>
             </li>
             

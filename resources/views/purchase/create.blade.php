@@ -14,8 +14,8 @@
             <div class="column">
 
               <h2>Proveedor</h2>
-              <div class="select is-multiple">
-                <select name="provider_id" multiple size="2">
+              <div class="select">
+                <select name="provider_id">
                   @foreach($provider as $provider)
                     <option value=" {{$provider['id'] }}"> {{$provider['fullname']}}</option>
                   @endforeach 
@@ -24,20 +24,21 @@
             </div>
             <div class="column">
               <h2>Producto</h2>
-              <div class="select is-multiple">
-                <select name="product" id="pro" multiple size="2">
+              <div class="select">
+                <select name="product" id="pro">
                   @foreach($product as $product)
-                    <option value="{{$product->id}}_{{$product->quantity}}_{{$product->purchase_price}}"> {{$product->name}}</option>
+                    <option value="{{$product->id}}_{{$product->stock}}_{{$product->purchase_price}}"> {{$product->name}}</option>
                   @endforeach
                 </select>
               </div>
               
             </div>
           </div>
-
+<br>
+<br>
           <div class="control">
             <label for="quantity">STOCK</label>
-            <input class="input" type="number" name="quantity" id="quantity">
+            <input class="input" type="number" name="stock" id="stock">
           </div>
           <div>
             <label for="cantidad">Cantidad</label>
@@ -47,9 +48,10 @@
             <label for="purchase_price">Precio Compra</label>
             <input class="input" type="number" name="purchase_price" id="purchase_price">
           </div>
+          <br>
           <div class="field">
             <div class="control">
-              <a id="add"><input class="button" type="button" value="Agregar"></a>
+              <a id="add"><input class="button is-success" type="button" value="Agregar"></a>
             </div>
           </div>
 
@@ -75,8 +77,8 @@
           </table>
           <div>
             <input name="_token" value="{{csrf_token()}}" type="hidden">
-            <button class="button">Guardar</button>
-            <button class="button" name="cancelar">cancelar</button>
+            <button class="button is-primary">Guardar</button>
+            <button class="button is-danger" name="cancelar">cancelar</button>
           </div>  
         </form>
       </div>
@@ -110,7 +112,7 @@
       function mostrar(){
         datos = document.getElementById('pro').value.split('_');
         $('#purchase_price').val(datos[2]);
-        $('#quantity').val(datos[1]);
+        $('#stock').val(datos[1]);
       }
 
       function agregar(){
@@ -119,7 +121,7 @@
         pdt = $('#pro option:selected').text();
         cantidad = $('#cantidad').val();
         purchase_price = $('#purchase_price').val();
-        quantity = $('#quantity').val();
+        quantity = $('#stock').val();
 
         if (idproduct != "" && cantidad != "" && cantidad > 0 &&  purchase_price!="") {
           
@@ -146,7 +148,7 @@
       }
       function limpiar() {
         $('#cantidad').val('');
-        $('#quantity').val('');
+        $('#stock').val('');
         $('#purchase_price').val('');
         
       }

@@ -19,7 +19,7 @@
 
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="quantity" placeholder="Cantidad" required> 
+    <input class="input is-primary" type="text" name="stock" placeholder="Cantidad" required> 
   </div>
   </div>
   <div class="field">

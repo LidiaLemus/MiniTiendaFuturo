@@ -10,7 +10,8 @@
  		</div>
          </div>
 
-        <h1 class="title is-3">Proveedor</h1>
+		<h1 class="title is-3">Proveedor</h1>
+		@include('provider.search')
         <table class="table is-fullwidth is-striped is-hoverable ">
  		<thead>
  			<tr>
@@ -22,19 +23,18 @@
  		</tr>
  		</thead>
  		<tbody>
- 			@foreach($provider as $provider)
+ 			@foreach($pro as $provider)
  				<tr>
 		<td>{{$provider->fullname}}</td>
 		<td>{{$provider->phone}}</td>
         <td>{{$provider->email}}</td>
         <td>{{$provider->company->name}}</td>
       
-		
-		</td>
 	</tr>
  		</tbody>
 		@endforeach  
- 	</table>
+	 </table>
+	 {!! $pro->render() !!}
         </div>
         </div>
    @endsection

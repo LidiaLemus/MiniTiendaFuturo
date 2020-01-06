@@ -10,7 +10,8 @@
  		</div>
          </div>
 
-        <h1 class="title is-3">Lista de Clientes</h1>
+		<h1 class="title is-3">Lista de Clientes</h1>
+		@include('customer.search')
         <table class="table is-fullwidth is-striped is-hoverable ">
  		<thead>
  			<tr>
@@ -23,7 +24,7 @@
  		</tr>
  		</thead>
  		<tbody>
- 			@foreach($customer as $customer)
+ 			@foreach($cust as $customer)
  				<tr>
 		<td>{{$customer->fullname}}</td>
 		<td>{{$customer->email}}</td>
@@ -35,7 +36,8 @@
 	</tr>
  		</tbody>
 		@endforeach  
- 	</table>
+	 </table>
+	 {!! $cust->render() !!}
         </div>
         </div>
             </div>

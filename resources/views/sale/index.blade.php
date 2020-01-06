@@ -28,8 +28,6 @@
 		<td>{{$sale->total}}</td>
 		<td><a class="button is-primary" href="{{route('sale.show',$sale->id)}}">Detalle Cliente</a>
 		</td>
-		
-		
 	</tr>
  		</tbody>
 		@endforeach  

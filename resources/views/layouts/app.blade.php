@@ -17,6 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="path/to/easy-autocomplete.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -27,9 +28,7 @@
    
    <nav class="navbar is-info is-left" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="/home">
-      <img src="" width="112" height="28">
-    </a>
+   
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -129,5 +128,7 @@ if ($navbarBurgers.length > 0) {
            
         
     </div>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    
 </body>
 </html>

@@ -13,8 +13,8 @@
               <div class="column">
 
                 <h2>Empleado</h2>
-                <div class="select is-multiple">
-                  <select name="employee_id" multiple size="2">
+                <div class="select">
+                  <select name="employee_id">
                     @foreach($employee as $employee)
                       <option value=" {{$employee['id'] }}"> {{$employee['fullname']}}</option>
                     @endforeach 
@@ -22,46 +22,47 @@
                 </div>
               </div>
               <div class="column">
+
                 <h2>Cliente</h2>
-                <div class="select is-multiple">
-                  <select name="customer_id" multiple size="2">
+                <div class="select">
+                  <select name="customer_id">
                     @foreach($customer as $customer)
-                      <option value= "{{$customer['id'] }}"> {{$customer['fullname']}}</option>
-                    @endforeach
+                      <option value=" {{$customer['id'] }}"> {{$customer['fullname']}}</option>
+                    @endforeach 
                   </select>
                 </div>
               </div>
               <div class="column">
                 <h2>Producto</h2>
-                <div class="select is-multiple">
-                  <select name="product" id="pro" multiple size="2">
+                <div class="select">
+                  <select name="product" id="pro">
                     @foreach($product as $product)
-                      <option value="{{$product->id}}_{{$product->quantity}}_{{$product->sale_price}}"> {{$product->name}}</option>
+                      <option value="{{$product->id}}_{{$product->stock}}_{{$product->sale_price}}"> {{$product->name}}</option>
                     @endforeach
                   </select>
                 </div>
                 
               </div>
             </div>
-
+<br><br>
             <div class="control">
               <label for="quantity">STOCK</label>
-              <input class="input" type="number" name="quantity" id="quantity">
+              <input class="input" type="number" name="stock" id="stock" readonly>
             </div>
             <div>
               <label for="cantidad">Cantidad</label>
-              <input class="input" id="cantidad" name="cantidad" type="number">
+              <input class="input" id="cantidad" name="cantidad" type="number" required>
             </div>
             <div>
               <label for="sale_price">Precio Venta</label>
-              <input class="input" type="number" name="sale_price" id="sale_price">
+              <input class="input" type="number" name="sale_price" id="sale_price" readonly><br><br>
             </div>
             <div class="field">
               <div class="control">
-                <a id="add"><input class="button" type="button" value="Agregar"></a>
+                <a id="add"><input class="button is-warning" type="button" value="Agregar" readonly></a>
               </div>
             </div>
-
+<br>
             <table class="table" id="detalle">
               <thead>
                 <tr>
@@ -84,9 +85,10 @@
             </table>
             <div>
               <input name="_token" value="{{csrf_token()}}" type="hidden">
-              <button class="button">Guardar</button>
-              <button class="button" name="cancelar">cancelar</button>
-            </div>  
+              <button class="button is-primary">Guardar</button>
+              <button class="button is-danger " name="cancelar">cancelar</button>
+            </div> 
+          
           </form>
         </div>
     </div>
@@ -119,7 +121,7 @@
         function mostrar(){
           datos = document.getElementById('pro').value.split('_');
           $('#sale_price').val(datos[2]);
-          $('#quantity').val(datos[1]);
+          $('#stock').val(datos[1]);
         }
 
         function agregar(){
@@ -128,7 +130,7 @@
           pdt = $('#pro option:selected').text();
           cantidad = $('#cantidad').val();
           sale_price = $('#sale_price').val();
-          quantity = $('#quantity').val();
+          quantity = $('#stock').val();
 
           if (idproduct != "" && cantidad != "" && cantidad > 0 &&  sale_price!="") {
             if(quantity>=cantidad){
@@ -158,7 +160,7 @@
         }
         function limpiar() {
           $('#cantidad').val('');
-          $('#quantity').val('');
+          $('#stock').val('');
           $('#sale_price').val('');
           
         }
@@ -177,7 +179,10 @@
         evaluar();
       }
        
+     
        </script>
+
+
 
    
 

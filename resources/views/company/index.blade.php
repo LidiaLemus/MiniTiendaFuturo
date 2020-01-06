@@ -10,7 +10,8 @@
  		</div>
          </div>
 
-        <h1 class="title is-3">Lista de Compañias</h1>
+		<h1 class="title is-3">Lista de Compañias</h1>
+		@include('company.search')
         <table class="table is-fullwidth is-striped is-hoverable ">
  		<thead>
  			<tr>
@@ -23,7 +24,7 @@
  		</tr>
  		</thead>
  		<tbody>
- 			@foreach($company as $company)
+ 			@foreach($compa as $company)
  				<tr>
 		<td>{{$company->name}}</td>
 		<td>{{$company->nit}}</td>
@@ -35,7 +36,8 @@
 	</tr>
  		</tbody>
 		@endforeach  
- 	</table>
+	 </table>
+	 {!! $compa->render() !!}
         </div>
         </div>
    @endsection
