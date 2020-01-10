@@ -13,25 +13,28 @@ class UsersTableSeeder extends Seeder
     {
         $users = [
             [
-                'name' => 'admin',
+                'name' => 'Marina',
                 'address'=> 'Esquipulas',
                 'phone'=> '58698741',
-                'email' => 'mark@gmail.com',
+                'email' => 'marina@gmail.com',
                 'password' => bcrypt('mark12345'),
+                'is_active'=>('1'),
             ],
             [
-                'name' => 'user1',
+                'name' => 'Lidia',
                 'address' => 'Chiquimula',
                 'phone' => '58698745',
-                'email' => 'jep@gmail.com',
+                'email' => '123@gmail.com',
                 'password' => bcrypt('jep1234'),
+                'is_active'=>('1'),
             ],
             [
-                'name' => 'user2',
+                'name' => 'victoria',
                 'address' => 'Zacapa',
                 'phone' => '69325785',
-                'email' => 'clavero@gmail.com',
+                'email' => 'vicky@gmail.com',
                 'password' => bcrypt('clavero1234'),
+                'is_active'=>('1'),
             ],
         ];
 
