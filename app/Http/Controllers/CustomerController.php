@@ -98,8 +98,9 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        Customer::find($id)->delete();
-        $customer = Customer::all();
-        return view('customer.index',compact('customer'));
+      $customer = Customer::findOrFail($id);
+      $customer->is_active = '0';
+      $customer->update();
+      return redirect('customer');
     }
 }

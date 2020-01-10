@@ -55,9 +55,10 @@ class UserController extends Controller
 
     }
     public function destroy($id){
-        User::find($id)->delete();
-        $user = User::all();
-        return view('user.index',compact('user'));
 
+       $user= User::findOrFail($id);
+       $user->is_active = '0';
+       $user->update();
+        return redirect('user');
     }
 }

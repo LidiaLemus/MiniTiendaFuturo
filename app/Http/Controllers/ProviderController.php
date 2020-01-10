@@ -105,8 +105,12 @@ class ProviderController extends Controller
      * @param  \App\Provider  $provider
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Provider $provider)
+    public function destroy($id)
     {
-        //
+        $provider= Provider::findOrFail($id);
+        $provider->is_active = '0';
+        $provider->update();
+         return redirect('provider');
+        
     }
 }

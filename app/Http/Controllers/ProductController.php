@@ -64,7 +64,7 @@ class ProductController extends Controller
     {
         //
         $product = Product::findOrFail($id);
-        return view('product.edit',compact('product'));
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -104,8 +104,9 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
-        Product::find($id)->delete();
-        $product = Product::all();
-        return view('product.index',compact('product'));
+        $product= Product::findOrFail($id);
+        $product->is_active = '0';
+        $product->update();
+         return redirect('product');
     }
 }
