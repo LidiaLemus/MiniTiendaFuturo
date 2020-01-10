@@ -39,7 +39,7 @@
           <ul>
           <li>
               <a href="{{route('product.index')}}">
-                <span class="icon is-small"><i class="fa fa-link"></i></span>Inventario
+                <span class="icon is-small"><i class="fas fa-th-list"></i></span>Inventario
               </a>
             </li>
             <li>

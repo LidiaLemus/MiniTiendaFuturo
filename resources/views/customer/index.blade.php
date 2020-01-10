@@ -24,7 +24,9 @@
  		</tr>
  		</thead>
  		<tbody>
- 			@foreach($cust as $customer)
+			 @foreach($cust as $customer)
+			 @if($customer->is_active===1)
+			 
  				<tr>
 		<td>{{$customer->fullname}}</td>
 		<td>{{$customer->email}}</td>
@@ -34,7 +36,8 @@
 		<td><a class="button is-primary" href="{{route('customer.show',$customer->id)}}">Detalle Cliente</a>
 		</td>
 	</tr>
- 		</tbody>
+		 </tbody>
+		 @endif
 		@endforeach  
 	 </table>
 	 {!! $cust->render() !!}

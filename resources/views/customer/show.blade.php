@@ -28,13 +28,14 @@
                  <td>{{$customer->nit}}</td>
 	 			<td><a class="button is-success button is-fullwidth" href="{{route('customer.index')}}">Lista</a></td>
 	 			<td><a class="button is-primary button is-fullwidth" href="{{route('customer.edit',$customer->id)}}">Editar</a></td>
-	 		<td>
-	 			<form method="post" action="{{route('customer.destroy',$customer->id)}}">
-  				@csrf
-  				@method('DELETE')
-  					<button class="button is-danger">Borrar</button>
-  	 			</form>
-	 		</td>
+			 <td><form action="{{action('CustomerController@destroy',$customer->id)}}" method="post">
+				{{csrf_field()}}
+				<input type="hidden" value="DELETE" name="_method">
+				<button class="button is-danger">Eliminar</button>
+
+
+
+			</form></td>
  		    </tr>
 
  

@@ -28,7 +28,9 @@
    
    <nav class="navbar is-info is-left" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-   
+    <a class="navbar-item" href="{{route('home')}}">
+      <img src="{{ asset('imagenes/imagen5.jpg') }}" width="100" height="28">
+    </a>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>

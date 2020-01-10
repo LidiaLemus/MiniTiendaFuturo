@@ -3,7 +3,7 @@
         <div class="container">
         
         <div class="card-content">
-        <h1 class="title is-3">Detalle Producto</h1>
+        <h1 class="title is-3">Detalle Del Proveedor</h1>
         
  		
  	</div>
@@ -26,7 +26,15 @@
         <td>{{$provider->company->name}}</td>
                 
 	 			<td><a class="button is-success button is-fullwidth" href="{{route('provider.index')}}">Lista</a></td>
-	 			<td><a class="button is-primary button is-fullwidth" href="{{route('provider.edit',$provider->id)}}">Editar</a></td>
+				 <td><a class="button is-primary button is-fullwidth" href="{{route('provider.edit',$provider->id)}}">Editar</a></td>
+				 <td><form action="{{action('ProviderController@destroy',$provider->id)}}" method="post">
+					{{csrf_field()}}
+					<input type="hidden" value="DELETE" name="_method">
+					<button class="button is-danger">Eliminar</button>
+	
+	
+	
+				</form></td>
 	 		
 	 	
 	 			

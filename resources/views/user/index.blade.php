@@ -24,17 +24,23 @@
  		</tr>
  		</thead>
  		<tbody>
- 			@foreach($users as $user)
+			 @foreach($users as $user)
+			 @if($user->is_active===1)
  				<tr>
 		<td>{{$user->name}}</td>
         <td>{{$user->address}}</td>
         <td>{{$user->phone}}</td>
 		<td>{{$user->email}}</td>
+		
+
+
     
-		<td><a class="button is-primary" href="{{route('user.show',$user->id)}}">Detalle Usuario</a>
-		</td>
-	</tr>
- 		</tbody>
+		<td><a class="button is-primary" href="{{route('user.show',$user->id)}}">Detalle Usuario</a></td>
+
+		
+		 </tbody>
+		
+		 @endif
 		@endforeach  
 	 </table>
 	 {!! $users->render() !!}

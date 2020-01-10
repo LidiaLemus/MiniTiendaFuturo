@@ -8,6 +8,52 @@
         {{session('status')}}
         </div>
         @endif
+        <br>
+        <br>
+        <div class="columns">
+            <div class="column">
+                
+                        <img src="{{ asset('imagenes/imagen1.jpg') }}" alt="imagen" width="300" height="30">
+               
+                    <br>
+                    <br>
+                   
+                    
+                </div>
+            
+            
+            <div class="column">
+                
+                    <div class="level">
+                        <div class="level-right">
+                            <h2 class="title">Sistema Inventario</h2>
+                        </div>
+                        <div class="level-left"></div>
+                    </div>
+                    
+                
+            </div>
+            <div class="column">
+                
+                <img src="{{ asset('imagenes/imagen3.jpg') }}" alt="imagen" width="300" height="30">
+            </div>
+           
+            
+        </div>
+        <div class="columns">
+            <div class="column">
+                
+                
+            </div>
+            <div class="column">
+
+            </div>
+            <div class="column">
+
+            </div>
+        </div>
+            <div>
+            </div>
         @extends('layouts.aside')
     </div>
     </div>

@@ -26,7 +26,8 @@
  		</tr>
  		</thead>
  		<tbody>
- 			@foreach($pro as $product)
+			 @foreach($pro as $product)
+			 @if($product->is_active===1)
  				<tr>
 		<td>{{$product->code}}</td>
         <td>{{$product->name}}</td>
@@ -34,10 +35,11 @@
 		<td>{{$product->is_active}}</td>
         <td>{{$product->sale_price}}</td>
 		<td>{{$product->purchase_price}}</td>
-		<td><a class="button is-primary" href="{{route('product.show',$product->id)}}">Detalle Producto</a>
-		</td>
+		<td><a class="button is-primary" href="{{route('product.show',$product->id)}}">Detalle Producto</a></td>
+		
 	</tr>
- 		</tbody>
+		 </tbody>
+		 @endif 
 		@endforeach
 	
 	 </table>

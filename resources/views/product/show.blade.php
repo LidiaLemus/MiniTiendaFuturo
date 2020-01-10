@@ -26,16 +26,13 @@
                  <td>{{$product->purchase_price}}</td>
                 
 	 			<td><a class="button is-success button is-fullwidth" href="{{route('product.index')}}">Lista</a></td>
-	 			<td><a class="button is-primary button is-fullwidth" href="{{route('product.edit',$product->id)}}">Editar</a></td>
-	 		<td>
-	 			<form method="post" action="{{route('product.destroy',$product->id)}}">
-  	@csrf
-  	@method('DELETE')
-  	<button class="button is-danger">Borrar</button>
-  	 </form>
-
-
-	 		</td>
+				 <td><a class="button is-primary button is-fullwidth" href="{{route('product.edit',$product->id)}}">Editar</a></td>
+				 <td><form action="{{action('ProductController@destroy',$product->id)}}" method="post">
+					{{csrf_field()}}
+					<input type="hidden" value="DELETE" name="_method">
+					<button class="button is-danger">Eliminar</button>
+				</form></td>
+			</tr>
  		    </tr>
 
  

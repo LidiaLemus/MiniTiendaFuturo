@@ -7,7 +7,7 @@
                         <div class="level-item">
                                 <div class="field has-addons">
                                   <p class="control">
-                                    <input class="input" type="text" placeholder="Buscar Producto" name="searchText">
+                                    <input class="input" type="text" placeholder="Buscar Usuario" name="searchText">
                                   </p>
                                   <p class="control">
                                     <button class="button is-success">

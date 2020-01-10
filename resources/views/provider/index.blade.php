@@ -19,19 +19,22 @@
  			<th>Nombre del Proveedor</th>
  			<th>Telefono</th>
             <th>Correo</th>
-            <th>Nombre de la compañia</th>
+
  		</tr>
  		</thead>
  		<tbody>
- 			@foreach($pro as $provider)
+			 @foreach($pro as $provider)
+			 @if($provider->is_active===1)
  				<tr>
 		<td>{{$provider->fullname}}</td>
 		<td>{{$provider->phone}}</td>
         <td>{{$provider->email}}</td>
-        <td>{{$provider->company->name}}</td>
+        <td><a class="button is-primary" href="{{route('provider.show',$provider->id)}}">Detalle</a>
+		</td>
       
 	</tr>
- 		</tbody>
+		 </tbody>
+		 @endif
 		@endforeach  
 	 </table>
 	 {!! $pro->render() !!}

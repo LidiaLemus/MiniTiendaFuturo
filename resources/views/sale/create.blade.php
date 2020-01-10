@@ -51,7 +51,7 @@
             </div>
             <div>
               <label for="cantidad">Cantidad</label>
-              <input class="input" id="cantidad" name="cantidad" type="number" required>
+              <input class="input" id="cantidad" name="cantidad" type="number" >
             </div>
             <div>
               <label for="sale_price">Precio Venta</label>
