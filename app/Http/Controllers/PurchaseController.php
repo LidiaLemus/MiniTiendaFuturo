@@ -22,8 +22,9 @@ class PurchaseController extends Controller
     public function index()
     {
         $provider = Provider::all();
+        $product = Product::all();
         $purchase = Purchase::all();
-        return view('purchase.index',compact('purchase','provider'));
+        return view('purchase.index',compact('provider','product','purchase'));
     }
 
     /**

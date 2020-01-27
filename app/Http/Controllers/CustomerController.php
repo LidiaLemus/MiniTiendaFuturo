@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Customer;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class CustomerController extends Controller
 { 
@@ -28,6 +29,14 @@ class CustomerController extends Controller
             ->paginate(7);
             return view('customer.index',["cust"=>$cust,"searchText"=>$query]);
         }
+    }
+
+    public function pdf(){
+
+        $customers = Customer::all();
+        $pdf = PDF::loadView('pdf.customers',compact('customers'));
+        return $pdf->download('listado.pdf');
+            
     }
 
     /**

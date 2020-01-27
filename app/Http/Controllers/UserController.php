@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use Barryvdh\DomPDF\Facade as PDF;
 class UserController extends Controller
 {
     public function __construct()
@@ -12,6 +12,13 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
+    public function pdf(){
+
+        $users = User::all();
+        $pdf = PDF::loadView('pdf.users',compact('users'));
+        return $pdf->download('listado.pdf');
+            
+    }
     public function index(Request $request){
         if ($request)
         {

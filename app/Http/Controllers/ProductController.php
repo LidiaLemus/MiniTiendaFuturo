@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
 class ProductController extends Controller
 {
 
@@ -24,8 +25,8 @@ class ProductController extends Controller
             $query=trim($request->get('searchText'));
             $pro=DB::table('products')->where('name','LIKE','%'.$query.'%')
             ->where ('is_active','=','1')
-            ->orderBy('id','desc')
-            ->paginate(7);
+            ->orderBy('id','DESC')
+            ->paginate(5);
             return view('product.index',["pro"=>$pro,"searchText"=>$query]);
         }
     }
@@ -78,6 +79,14 @@ class ProductController extends Controller
         //
         $product = Product::findOrFail($id);
         return view('product.edit',compact('product'));
+    }
+
+    public function pdf(){
+
+        $products = Product::all();
+        $pdf = PDF::loadView('pdf.products',compact('products'));
+        return $pdf->download('listado.pdf');
+            
     }
 
     /**
