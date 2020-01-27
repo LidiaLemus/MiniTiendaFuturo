@@ -54,13 +54,14 @@
         <a class="button is-light" href="{{ route('login') }}">
           iniciar sesión
           </a>
+          
           @if (Route::has('register'))
-        
           <a class="button is-primary" href="{{ route('register') }}">
             <strong>Regístrate</strong>
           </a>
           @endif
           @else
+          
           <div class="fiel">
           <div class="control  has-icons-left">
           

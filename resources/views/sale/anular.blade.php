@@ -6,4 +6,4 @@
         <input type="hidden"  id="no_factura" name="no_factura" value="">
     </form>
 </div> 
-@endsection
+@endsection  

@@ -14,6 +14,7 @@
             <div class="column">
                 
                         <img src="{{ asset('imagenes/imagen1.jpg') }}" alt="imagen" width="300" height="30">
+                        
                
                     <br>
                     <br>
@@ -42,7 +43,7 @@
         </div>
         <div class="columns">
             <div class="column">
-                
+                <h4>Bienvenido . {{ auth()->user()->name }} </h4>
                 
             </div>
             <div class="column">
