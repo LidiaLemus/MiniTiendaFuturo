@@ -24,6 +24,10 @@ Route::resource('purchase_Detail','PurchaseDetailController');
 Route::resource('stocktaking','StocktakingController');
 Route::resource('sale_detail','SaleDetailController');
 Route::resource('user','UserController');
+Route::get('descargar-productos', 'ProductController@pdf')->name('product.pdf');
+Route::get('descargar-clientes', 'CustomerController@pdf')->name('customer.pdf');
+Route::get('descargar-usuarios', 'UserController@pdf')->name('user.pdf');
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
