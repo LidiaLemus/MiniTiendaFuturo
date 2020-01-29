@@ -43,7 +43,6 @@
     <div class="navbar-start">
       <a class="navbar-item" href="{{ url('') }}">
                     {{ config('app.name', 'MiniTiendaFuturo') }}
-    
       </a>
      
                                     
@@ -52,14 +51,9 @@
         <div class="buttons">
         @guest
         <a class="button is-light" href="{{ route('login') }}">
-          iniciar sesión
+          Iniciar Sesión
           </a>
           
-          @if (Route::has('register'))
-          <a class="button is-primary" href="{{ route('register') }}">
-            <strong>Regístrate</strong>
-          </a>
-          @endif
           @else
           
           <div class="fiel">
@@ -70,9 +64,7 @@
                                                      document.getElementById('logout-form').submit();">
                                       
                                     </a>
-                                    <span class="icon is-small is-left">
-              <i class="fas fa-sign-out-alt"></i>
-            </span>
+                                    <span class="icon is-small is-left"><i class="fas fa-sign-out-alt"></i></span>
           
           </div>
           
@@ -81,6 +73,11 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
                                     </form>
+                                    @if (Route::has('register'))
+          <a class="button is-primary" href="{{ route('register') }}">
+            <strong>Regístrate</strong>
+          </a>
+          @endif
                                     @endguest
         </div>
       </div>
