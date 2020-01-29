@@ -29,7 +29,7 @@
 		<td>{{$company->name}}</td>
 		<td>{{$company->nit}}</td>
         <td>{{$company->address}}</td>
-        <td>{{$company->email}}</td>
+        <td>{{$company->email}}</td> 
         <td>{{$company->phone}}</td>
 		<td><a class="button is-primary" href="{{route('company.show',$company->id)}}">Detalle Compania</a>
 		</td>
