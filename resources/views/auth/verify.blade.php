@@ -1,21 +1,31 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
+    <div class="card-content">
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="box" method="POST" action="{{ route('verification.resend') }}">
+        <div class="columns">   
+            <div class="column">
+                
+                <div class="hero-body">{{ __('Verifique su dirección de correo electrónico') }}</div>
+                <div>
+                    @if (session('resent'))
+                    <div class="notification" role="alert">
+                        {{ __('Se ha enviado un nuevo enlace de verificación a su dirección de correo electrónico.') }}
+                    </div>
+                    @endif
+                    
+                    {{ __('Antes de continuar, revise su correo electrónico para obtener un enlace de verificación.') }}
+                    {{ __('Si no recibiste el correo electrónico.') }},
+                    <form class="form" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        <button type="submit" class="button is-link">{{ __('click here to request another') }}</button>.
+                        <button type="submit" class="button is-info">{{ __('haga clic aquí para solicitar otro') }}</button>.
                     </form>
                 </div>
+            </div>
+            <div class="column"></div>
+            <div class="column"> </div>
+        </div>
+    </div>
+                
 </div>
 @endsection
