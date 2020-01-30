@@ -47,7 +47,7 @@
                         <div class="field">
                             <div class="control">
                                 <button type="submit" class="button is-success">
-                                    {{ __('Login') }}
+                                    {{ __('Iniciar Sesión') }}
                                 </button>
                                 @if (Route::has('password.request'))
                                     <a class="button is-link" href="{{ route('password.request') }}">
