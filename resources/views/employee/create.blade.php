@@ -11,27 +11,27 @@
 
     <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="fullname" placeholder="Nombre completo" required>
+    <input class="input is-primary" type="text" name="fullname" placeholder="Nombre completo" required oninvalid="this.setCustomValidity('Por favor ingresa tu nombre completo')">
   </div>
   </div>
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="address" placeholder="Direccion" required>
+    <input class="input is-primary" type="text" name="address" placeholder="Direccion" required oninvalid="this.setCustomValidity('Por favor ingresa tu Direccion')">
   </div>
   </div>
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="phone" placeholder="Telefono" required>
+    <input class="input is-primary" type="text" name="phone" placeholder="Telefono" required oninvalid="this.setCustomValidity('Por favor ingresa tu telefono')">
   </div>
   </div>
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="email" placeholder="Correo Electronico" required>
+    <input class="input is-primary" type="text" name="email" placeholder="Correo Electronico" required oninvalid="this.setCustomValidity('Por favor ingresa tu correo electronico')">
   </div>
   </div>
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="cui" placeholder="Numero de CUI Maximo 13 Caracteres" required>
+    <input class="input is-primary" type="text" name="cui" placeholder="Numero de CUI Maximo 13 Caracteres" required oninvalid="this.setCustomValidity('Por favor ingresa tu CUI')"> 
   </div>
   </div>
   <br>

@@ -12,15 +12,15 @@
    
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="fullname" placeholder="Nombre Completo" required>
+    <input class="input is-primary" type="text" name="fullname" placeholder="Nombre Completo" required oninvalid="this.setCustomValidity('Por favor ingresa tu nombre completo')">
   </div>
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="phone" placeholder="Numero de Telefono" required>
+    <input class="input is-primary" type="text" name="phone" placeholder="Numero de Telefono" required oninvalid="this.setCustomValidity('Por favor ingresa tu numero de telefono')">
   </div>
   <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="email" placeholder="Correo Electronico" required>
+    <input class="input is-primary" type="text" name="email" placeholder="Correo Electronico" required oninvalid="this.setCustomValidity('Por favor ingresa tu correo electronico')">
   </div>
   <br>
   <div class="select is-multiple">
