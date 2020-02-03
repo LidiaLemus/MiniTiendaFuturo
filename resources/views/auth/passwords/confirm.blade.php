@@ -18,7 +18,7 @@
                         <label for="password" class="label">{{ __('Password') }}</label>
 
                         <div class="control">
-                            <input id="password" type="password" class="input" name="password" required autocomplete="current-password">
+                            <input id="password" type="password" class="input" name="password" required autocomplete="current-password" oninvalid="this.setCustomValidity('Por favor ingresa tu contraseña')">
                         </div>
                     </div>
                     

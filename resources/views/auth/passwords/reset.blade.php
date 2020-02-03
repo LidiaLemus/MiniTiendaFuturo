@@ -18,7 +18,7 @@
                 <div class="field">
                     <label for="email" class="label">{{ __('Dirección de correo electrónico') }}</label>
                     
-                    <input id="email" type="email" class="input @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                    <input id="email" type="email" class="input @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus oninvalid="this.setCustomValidity('Por favor ingresa tu correo electronico')">
                     
                     <div class="column">
                         @error('email')
@@ -35,7 +35,7 @@
                             <div class="column">
                                 <div class="field">
                                     <div class="control">
-                                        <input id="password" type="password" class="input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                        <input id="password" type="password" class="input @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" oninvalid="this.setCustomValidity('Por favor ingresa tu contraseña')">
                                         
                                     </div>
                                 </div>
@@ -54,7 +54,7 @@
                             <label for="password-confirm" class="lable">{{ __('Confirmar contraseña') }}</label>
                             
                             <div class="column">
-                                <input id="password-confirm" type="password" class="input" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="input" name="password_confirmation" required autocomplete="new-password" oninvalid="this.setCustomValidity('Por favor ingresa tu confirmacion de correo')">
                             </div>
                         </div>
                         

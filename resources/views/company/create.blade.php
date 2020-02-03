@@ -11,7 +11,7 @@
 
     <div class="field">
   <div class="control">
-    <input class="input is-primary" type="text" name="name" placeholder="Nombre" required oninvalid="this.setCustomValidity('Por favor ingresa tu nombre completo')">
+    <input class="input is-primary" type="text" name="name" placeholder="Nombre" required oninvalid="this.setCustomValidity('Por favor ingresa nombre de la compañia')">
   </div>
   <div class="field">
   <div class="control">

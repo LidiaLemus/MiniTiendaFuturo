@@ -62,6 +62,8 @@
                                 <button type="submit" class="button is-primary">
                                     Registrarse
                                 </button>
+                                <a class="button is-danger" href="{{route('user.index')}}">Cancelar</a></td>
+
                           
                         </div>
                     </form>

@@ -13,7 +13,7 @@
                             <label for="email" class="label">Correo Elctronico</label>
                             <div class="control has-icons-left has-icons-right">
                             
-                            <input id="email" type="email" class="input is-success" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="e.g. bobsmith@gmail.com">
+                            <input id="email" type="email" class="input is-success" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="e.g. bobsmith@gmail.com" oninvalid="this.setCustomValidity('Por favor ingresa tu correo electronico')">
                             <span class="icon is-small is-left">
                             <i class="fas fa-envelope"> </i>
                             </span>
@@ -24,7 +24,7 @@
                             <label class="label" for="password">Contraseña</label>
                             <div class="control has-icons-left has-icons-right">
                             <div class="control has-icons-left">
-                                <input id="password" type="password" class="input is-success" name="password" required autocomplete="current-password" placeholder="*******">
+                                <input id="password" type="password" class="input is-success" name="password" required autocomplete="current-password" placeholder="*******" oninvalid="this.setCustomValidity('Por favor ingresa tu contraseña')">
                                 <span class="icon is-small is-left">
                             <i class="fas fa-lock"> </i>
                             </span>

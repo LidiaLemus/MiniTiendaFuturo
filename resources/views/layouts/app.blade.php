@@ -41,7 +41,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="{{ url('') }}">
+      <a class="navbar-item" href="{{ url('/') }}">
                     {{ config('app.name', 'MiniTiendaFuturo') }}
       </a>
      
