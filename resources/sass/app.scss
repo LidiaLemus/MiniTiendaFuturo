@@ -1,3 +1,12 @@
+.mytable {
+    overflow-x: auto;
+}
+
+.pricing_table {
+    widows: 100%;
+    overflow-x: auto;
+}
+
 // Bulma
 @import '~bulmaswatch/minty/bulmaswatch.scss';
 //fontawesome
