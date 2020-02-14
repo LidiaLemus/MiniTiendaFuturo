@@ -16,7 +16,7 @@
  		<thead>
  			<tr>
  				<th>Fecha</th>
-		   		<th>Total</th>
+		   		<th>Total de la Compra</th>
  			</tr>
  		</thead>
  		<tbody>
