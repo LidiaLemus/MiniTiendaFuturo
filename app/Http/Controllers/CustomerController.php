@@ -34,7 +34,8 @@ class CustomerController extends Controller
     public function pdf(){
 
         $customers = Customer::all();
-        $pdf = PDF::loadView('pdf.customers',compact('customers'));
+        $date = date('Y-m-d');
+        $pdf = PDF::loadView('pdf.customers',compact('customers','date'));
         return $pdf->download('listado.pdf');
             
     }

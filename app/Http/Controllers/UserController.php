@@ -15,7 +15,8 @@ class UserController extends Controller
     public function pdf(){
 
         $users = User::all();
-        $pdf = PDF::loadView('pdf.users',compact('users'));
+        $date = date('Y-m-d');
+        $pdf = PDF::loadView('pdf.users',compact('users','date'));
         return $pdf->download('listado.pdf');
             
     }

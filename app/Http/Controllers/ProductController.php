@@ -84,7 +84,8 @@ class ProductController extends Controller
     public function pdf(){
 
         $products = Product::all();
-        $pdf = PDF::loadView('pdf.products',compact('products'));
+        $date = date('Y-m-d');
+        $pdf = PDF::loadView('pdf.products',compact('products','date'));
         return $pdf->download('listado.pdf');
             
     }
