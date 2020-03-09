@@ -28,6 +28,14 @@
                     <div class="level">
                         <div class="level-right">
                             <h2 class="title">Sistema Inventario</h2>
+                            
+                        </div>
+                        <div class="level-left"></div>
+                    </div>
+                    <div class="level">
+                        <div class="level-right">
+                            <img src="{{ asset('imagenes/imagen6.jpg') }}" alt="imagen" width="300" height="120">
+                            
                         </div>
                         <div class="level-left"></div>
                     </div>
