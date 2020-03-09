@@ -184,6 +184,6 @@
 
 
 
-   
+   <script src="resource/jquery.js"></script>
 
 @endsection
