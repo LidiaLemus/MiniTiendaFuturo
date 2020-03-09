@@ -129,6 +129,7 @@ if ($navbarBurgers.length > 0) {
         
     </div>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="resource/jquery.js"></script>
     
 </body>
 </html>
