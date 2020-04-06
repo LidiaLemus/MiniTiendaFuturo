@@ -27,7 +27,7 @@
                 
                     <div class="level">
                         <div class="level-right">
-                            <h2 class="title">Sistema Inventario</h2>
+                            <h2 class="title animated infinite bounce delay-2s">Sistema Inventario</h2>
                             
                         </div>
                         <div class="level-left"></div>

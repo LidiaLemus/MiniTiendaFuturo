@@ -9,7 +9,7 @@
  		</div>
          </div>
 
-        <h1 class="title is-3">Ventas</h1>
+        <h1 class="title is-3 animated infinite bounce delay-2s">Ventas</h1>
         <table class="table is-fullwidth is-striped is-hoverable ">
  		<thead>
  			<tr>

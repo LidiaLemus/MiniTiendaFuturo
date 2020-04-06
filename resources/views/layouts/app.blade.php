@@ -18,6 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="path/to/easy-autocomplete.min.css">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -128,8 +129,8 @@ if ($navbarBurgers.length > 0) {
            
         
     </div>
+    <script src="../public/js/jquery.js"></script>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-    <script src="resource/jquery.js"></script>
     
 </body>
 </html>

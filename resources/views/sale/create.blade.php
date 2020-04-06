@@ -3,7 +3,7 @@
   <div class="container">
         
     <div class="card-content">
-        <h1 class="title is-3">Registro venta</h1>
+        <h1 class="title is-3 animated infinite bounce delay-2s">Registro venta</h1>
         <div class="columns">
           <div class="column is-three-quarters">
           

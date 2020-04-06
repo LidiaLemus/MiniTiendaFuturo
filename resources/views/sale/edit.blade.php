@@ -3,7 +3,7 @@
         <div class="container">
         
         <div class="card-content">
-        <h1 class="title is-3">Editar Venta</h1>
+        <h1 class="title is-3 animated infinite bounce delay-2s">Editar Venta</h1>
         <form method="post" action="{{route('sale.update',$sale->id)}}">
         @csrf
      	@method('PATCH')
