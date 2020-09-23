@@ -12,19 +12,11 @@
         <br>
         <div class="columns">
             <div class="column">
-
                 <img src="{{ asset('imagenes/imagen1.jpg') }}" alt="imagen" width="300" height="30">
-
-
                 <br>
                 <br>
-
-
             </div>
-
-
             <div class="column">
-
                 <div class="level">
                     <div class="level-right">
                         <h2 class="title animated infinite bounce delay-2s">Sistema Inventario</h2>
