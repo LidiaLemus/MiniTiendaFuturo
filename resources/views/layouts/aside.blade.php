@@ -27,8 +27,6 @@
                 <span class="icon is-small"><i class="fas fa-list"></i></span> Ventas
               </a>
             </li>
-           
-           
           </ul>
         </li>
       </ul>
@@ -95,7 +93,6 @@
                 <span class="icon is-small"><i class="fab fa-product-hunt"></i></span> Registrar producto
               </a>
             </li>
-           
               <a href="{{route('company.index')}}">
                 <span class="icon is-small"><i class="fas fa-building"></i></span> Compañia
               </a>

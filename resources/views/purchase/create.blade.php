@@ -1,13 +1,13 @@
 @extends('home')
 @section('content')
-      
+
 <div class="container">
-        
+
   <div class="card-content">
-      <h1 class="title is-3">Registro compra</h1>
-      <div class="columns">
-        <div class="column is-three-quarters">
-        
+    <h1 class="title is-3">Registro compra</h1>
+    <div class="columns">
+      <div class="column is-three-quarters">
+
         <form class="form" method="post" action="{{route('purchase.store')}}">
           {{csrf_field() }}
           <div class="columns">
@@ -17,8 +17,8 @@
               <div class="select">
                 <select name="provider_id">
                   @foreach($provider as $provider)
-                    <option value=" {{$provider['id'] }}"> {{$provider['fullname']}}</option>
-                  @endforeach 
+                  <option value=" {{$provider['id'] }}"> {{$provider['fullname']}}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
@@ -27,15 +27,16 @@
               <div class="select">
                 <select name="product" id="pro">
                   @foreach($product as $product)
-                    <option value="{{$product->id}}_{{$product->stock}}_{{$product->purchase_price}}"> {{$product->name}}</option>
+                  <option value="{{$product->id}}_{{$product->stock}}_{{$product->purchase_price}}"> {{$product->name}}
+                  </option>
                   @endforeach
                 </select>
               </div>
-              
+
             </div>
           </div>
-<br>
-<br>
+          <br>
+          <br>
           <div class="control">
             <label for="quantity">STOCK</label>
             <input class="input" type="number" name="stock" id="stock">
@@ -69,7 +70,8 @@
               <tr>
                 <td>Total</td>
                 <td></td>
-                <td><h4 id="total">Q/. 0.00</h4>
+                <td>
+                  <h4 id="total">Q/. 0.00</h4>
                   <input type="hidden" name="suma_total" id="suma_total">
                 </td>
               </tr>
@@ -79,24 +81,23 @@
             <input name="_token" value="{{csrf_token()}}" type="hidden">
             <button class="button is-primary">Guardar</button>
             <button class="button is-danger" name="cancelar">cancelar</button>
-          </div>  
+          </div>
         </form>
       </div>
-  </div>
+    </div>
 
-  <div class="field">
-    <div class="control">
-      <input class="input is-primary " type="hidden" name="total" required>
+    <div class="field">
+      <div class="control">
+        <input class="input is-primary " type="hidden" name="total" required>
+      </div>
     </div>
   </div>
+  <div class="column"></div>
 </div>
-<div class="column"></div>
-        </div>
-        </div>
-       
-     <script>
-     
-      $(document).ready(function() {
+</div>
+
+<script>
+  $(document).ready(function() {
         $('#add').click(function() {
           agregar();
         })
@@ -166,8 +167,7 @@
       $('#fila' + index).remove();
       evaluar();
     }
-     
-     </script>
+</script>
 
- 
-    @endsection
+
+@endsection

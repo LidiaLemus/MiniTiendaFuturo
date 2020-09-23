@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,33 +8,39 @@
     <title>Document</title>
     <style>
         #customers {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
 
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+        #customers td,
+        #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-#customers tr:hover {background-color: #ddd;}
+        #customers tr:hover {
+            background-color: #ddd;
+        }
 
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: black;
-  color: white;
-}
-.titulo{
-    text-align: center;
-}
-    
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: black;
+            color: white;
+        }
+
+        .titulo {
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
     <div class="titulo">
 
@@ -43,30 +50,31 @@
     <table id="customers">
         <thead>
             <tr>
-            
-            <th>Nombre Completo</th>
-            <th>Correo Electronico</th>
-           <th>Direccion</th>
-           <th>Telefono</th>
 
-           <th>Nit</th>
-        </tr>
+                <th>Nombre Completo</th>
+                <th>Correo Electronico</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+
+                <th>Nit</th>
+            </tr>
         </thead>
         <tbody>
             @foreach($customers as $customer)
-        
-            
-                <tr>
-       <td>{{$customer->fullname}}</td>
 
-       <td>{{$customer->email}}</td>
-       <td>{{$customer->address}}</td>
-       <td>{{$customer->phone}}</td>
-       <td>{{$customer->nit}}</td>
-   </tr>
+
+            <tr>
+                <td>{{$customer->fullname}}</td>
+
+                <td>{{$customer->email}}</td>
+                <td>{{$customer->address}}</td>
+                <td>{{$customer->phone}}</td>
+                <td>{{$customer->nit}}</td>
+            </tr>
         </tbody>
-        
-       @endforeach  
+
+        @endforeach
     </table>
 </body>
+
 </html>
