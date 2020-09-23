@@ -49,15 +49,15 @@ class PurchaseController extends Controller
     {
         try{
             DB::beginTransaction();
-             $compra = new Purchase;
-             $compra->total = $request->get('suma_total');
-             $compra->saveOrFail();
-             
-             $provider = $request->get('provider_id');
-             $product_id = $request->get('id_producto');
-             $cantidad = $request->get('cantidad');
-             $purchase_price = $request->get('precio_compra');
-             $subtotal = $request->get('subtotal');
+                $compra = new Purchase;
+                $compra->total = $request->get('suma_total');
+                $compra->saveOrFail();
+                
+                $provider = $request->get('provider_id');
+                $product_id = $request->get('id_producto');
+                $cantidad = $request->get('cantidad');
+                $purchase_price = $request->get('precio_compra');
+                $subtotal = $request->get('subtotal');
 
             $cont = 0;
             while($cont < count($product_id)){

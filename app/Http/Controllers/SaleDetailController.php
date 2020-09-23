@@ -12,6 +12,8 @@ class SaleDetailController extends Controller
     {
         $this->middleware('auth');
     }
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -25,6 +27,7 @@ class SaleDetailController extends Controller
         return view('sale_detail.index',compact('sale_detail'));
 
     }
+    
 
     /**
      * Show the form for creating a new resource.
